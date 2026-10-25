@@ -1,0 +1,13 @@
+{
+  "name": "Nido",
+  "avoid": ["Life360", "Life 360", "vida360", "vida 360", "Circle360"],
+  "domains": ["life360.com", "nido.com", "nido.app", "nido.mx"],
+  "colors": {
+    "original": ["#2F5BEA", "#006bff", "#2563eb"],
+    "clone": ["#0D9488", "#14B8A6", "#0F766E"]
+  },
+  "voice": {
+    "words": ["cercano", "claro", "tranquilo"],
+    "not": ["brusco", "tecnico", "agresivo", "infantil"]
+  }
+}

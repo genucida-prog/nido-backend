@@ -1,0 +1,82 @@
+feature,area,priority,original,clone,notes
+Account & Onboarding,
+Sign up with email,password,yes,yes,Standard email/password
+Sign up with Google,oauth,yes,yes,OAuth 2.0 flow
+Sign up with Apple,oauth,yes,yes,Apple Sign In SDK
+Sign up with phone + SMS OTP,auth,yes,yes,Twilio or Firebase Auth phone
+Set display name,profile,yes,yes,Simple text field
+Upload profile photo,profile,yes,yes,Supabase Storage upload
+Login / Logout,auth,yes,yes,Session management
+Password reset,email,yes,yes,Firebase Auth or Resend email
+Circle Management,
+Create Circle,circle,yes,yes,User creates circle and names it
+Invite members by phone,invite,yes,yes,Send SMS with join code
+Invite members by email,invite,yes,yes,Send email with join link
+Join Circle via code,join,yes,yes,6-digit code entry
+Join Circle via link,join,yes,yes,Deep link to join flow
+Remove member from Circle,membership,yes,yes,Admin action only
+Change Circle name,circle,yes,yes,Admin action only
+Leave Circle,circle,yes,yes,Self-serve exit
+Map & Location,
+Show real-time member locations,map,yes,yes,WebSockets or Firebase realtime DB
+Show member name on pin,marker,yes,yes,Text overlay on map pin
+Show ETA to destination,eta,yes,yes,Calculated from distance + speed
+Show battery level on pin,battery,yes,yes,Device battery API
+Show charging status,battery,yes,yes,Device charging state
+Toggle location sharing,on_off,yes,yes,Per-member setting
+View location history,timeline,yes,yes,Last 7 days free / 30 days paid
+Tap member to see detail,member_detail,yes,yes,Navigate to S07
+Place Alerts,
+Add new place,place,yes,yes,Map pin + radius picker
+Edit place name & radius,place,yes,yes,Inline edit
+Delete place,place,yes,yes,Admin only
+Toggle arrival alert,alert,yes,yes,Binary toggle
+Toggle departure alert,alert,yes,yes,Binary toggle
+See list of all places,place_list,yes,yes,Card list with alerts status
+Driving Safety,
+Record drive automatically,drive_record,yes,yes,On-device motion sensor detection
+Show drive summary report,drive_report,yes,yes,Score + key stats
+Show hard braking events,event,yes,yes,Time + severity
+Show rapid acceleration,event,yes,yes,Time + severity
+Show speeding events,event,yes,yes,Excess kmh + duration
+Show phone use while driving,event,yes,yes,Duration of phone interaction
+Drive score calculation,score,yes,yes,Algorithm: weighted sum of events
+Filter drives by date range,filter,yes,yes,Date picker range
+Membership & Payments,
+Free tier (Silver) features,free,yes,yes,Core location sharing, 2 places, crash detection
+Silver membership ($9.99/mo),tier_silver,yes,no_free,Extended history, 5 places
+Gold membership ($16.99/mo),tier_gold,yes,no_free,Unlimited places, 30-day history
+Platinum membership (highest),tier_platinum,yes,no_free,All features + priority support
+Show current membership status,membership_status,yes,yes,Badge display
+Upgrade membership,upgrade,yes,yes,Stripe Checkout flow
+Downgrade / Cancel membership,cancel,yes,yes,Stripe cancel subscription
+Payment method management,payment,yes,yes,Stripe customer portal
+Apply promo code,promo,yes,yes,Stripe coupon support
+Notifications,
+Push notification for place alert,place_push,yes,yes,FCM / APNs
+Push notification for SOS,sos_push,yes,yes,High priority FCM
+Push notification for drive report,drive_push,yes,yes,Daily/weekly summary
+In-app notification center,notifications,yes,yes,Red badge + list
+Mark notification as read,read,yes,yes,Local state update
+Notification settings per type,settings,yes,yes,Toggle per event type
+Emergency Features,
+SOS manual trigger,sos,yes,yes,Large button with confirmation
+SOS sends location to circle,sos_location,yes,yes,Lat/lon included in payload
+SOS acknowledged by another member,acknowledge,yes,yes,Status change to acknowledged
+Crash detection (simulated),crash,yes,no_simulated,On-device accelerometer trigger (not patented algorithm)
+Crash notification to circle,crash_notify,yes,yes,Same flow as SOS
+Settings,
+Edit profile,profile_edit,yes,yes,Update name/photo/email
+Change password,password,yes,yes,Auth provider flow
+Notification preferences,notification_pref,yes,yes,Toggles per category
+Location sharing toggle,location_toggle,yes,yes,Per-member
+Privacy settings,privacy,yes,yes,Control who sees what
+App version info,about,yes,yes,Static string
+Help center,help,yes,yes,Static FAQ page
+Contact support,support,yes,no_external,Email form to own backend (not Live Agent)
+Offline / Edge Cases,
+No internet connection,offline,yes,no_cache,Show cached last known location
+Weak GPS signal,weak_gps,yes,yes,Show accuracy warning
+Member offline,offline_member,yes,yes,"Grayed pin, last seen time"
+Battery low warning,battery_low,yes,yes,Show icon on member pin
+Duplicate place name validation,duplicate,yes,yes,Server-side unique constraint

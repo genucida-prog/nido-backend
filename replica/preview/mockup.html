@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nido - Mockups</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f6f9; color: #0f1420; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    h1 { text-align: center; margin-bottom: 40px; color: #0F766E; }
+    .screens { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .phone { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .phone-screen { height: 600px; position: relative; overflow: hidden; }
+    .screen-title { padding: 15px; background: #0F766E; color: white; font-weight: bold; text-align: center; }
+    .screen-content { padding: 20px; height: calc(100% - 50px); overflow-y: auto; }
+    
+    /* Login Screen */
+    .login-screen { background: #f4f6f9; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .logo { width: 80px; height: 80px; background: #0F766E; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; margin-bottom: 20px; }
+    .app-name { font-size: 28px; font-weight: bold; color: #0f1420; margin-bottom: 8px; }
+    .tagline { color: #5a6577; font-size: 14px; margin-bottom: 30px; }
+    .input-field { width: 100%; padding: 14px; border: 1px solid #d0d5dd; border-radius: 8px; margin-bottom: 12px; font-size: 14px; }
+    .btn-primary { width: 100%; padding: 16px; background: #0F766E; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+    .btn-secondary { width: 100%; padding: 16px; background: white; color: #5a6577; border: 1px solid #d0d5dd; border-radius: 8px; font-size: 16px; font-weight: 600; margin-top: 12px; cursor: pointer; }
+    
+    /* Map Screen */
+    .map-screen { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); position: relative; }
+    .map-placeholder { width: 100%; height: 100%; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600"><rect fill="%23e8f5e9" width="400" height="600"/><path d="M0 300 Q100 280 200 300 T400 300" stroke="%23a5d6a7" fill="none" stroke-width="2"/><path d="M200 0 L200 600" stroke="%23a5d6a7" fill="none" stroke-width="1"/><path d="M0 200 L400 200" stroke="%23a5d6a7" fill="none" stroke-width="1"/></svg>') center/cover; }
+    .location-pin { position: absolute; width: 48px; height: 48px; background: #0F766E; border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    .pin-1 { top: 20%; left: 30%; }
+    .pin-2 { top: 40%; right: 25%; }
+    .pin-3 { bottom: 30%; left: 40%; }
+    .sos-btn { position: absolute; bottom: 100px; right: 20px; width: 64px; height: 64px; background: #b91c1c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(185,28,28,0.4); }
+    
+    /* Bottom Nav */
+    .bottom-nav { position: absolute; bottom: 0; left: 0; right: 0; height: 70px; background: white; display: flex; justify-content: space-around; align-items: center; padding: 10px 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; color: #5a6577; }
+    .nav-item.active { color: #0F766E; }
+    .nav-icon { font-size: 24px; }
+    
+    /* Notifications */
+    .notif-list { display: flex; flex-direction: column; gap: 12px; }
+    .notif-item { background: white; border-radius: 12px; padding: 15px; display: flex; align-items: flex-start; gap: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .notif-icon { width: 40px; height: 40px; background: #e0f2f1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .notif-content { flex: 1; }
+    .notif-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+    .notif-text { font-size: 12px; color: #5a6577; }
+    
+    /* Places */
+    .place-card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .place-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .place-icon { font-size: 24px; }
+    .place-name { font-weight: 600; }
+    .place-alerts { display: flex; gap: 8px; margin-top: 10px; }
+    .alert-tag { background: #e0f2f1; color: #0F766E; padding: 4px 10px; border-radius: 20px; font-size: 12px; }
+    
+    /* Drive Score */
+    .score-circle { width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#0F766E 270deg, #e0e0e0 0deg); display: flex; align-items: center; justify-content: center; margin: 20px auto; position: relative; }
+    .score-circle::before { content: ''; position: absolute; width: 100px; height: 100px; background: white; border-radius: 50%; }
+    .score-number { position: relative; z-index: 1; font-size: 32px; font-weight: bold; color: #0F766E; }
+    
+    /* Membership */
+    .membership-card { background: linear-gradient(135deg, #0F766E 0%, #14b8a6 100%); color: white; border-radius: 16px; padding: 20px; margin-bottom: 15px; }
+    .membership-title { font-size: 20px; font-weight: bold; margin-bottom: 8px; }
+    .membership-price { font-size: 32px; font-weight: bold; }
+    .membership-price span { font-size: 14px; opacity: 0.8; }
+    .feature-list { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
+    .feature-item { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .feature-item::before { content: '✓'; color: #16a34a; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏠 Nido - Mockups de Pantallas</h1>
+    
+    <div class="screens">
+      <!-- Login Screen -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="screen-title">Iniciar Sesión</div>
+          <div class="screen-content login-screen">
+            <div class="logo">🏠</div>
+            <div class="app-name">Nido</div>
+            <div class="tagline">Seguridad familiar gratuita</div>
+            <input type="email" class="input-field" placeholder="tu@email.com" value="test+nido@gmail.com">
+            <input type="password" class="input-field" placeholder="••••••••" value="••••••••">
+            <button class="btn-primary">Iniciar sesión</button>
+            <button class="btn-secondary">¿No tienes cuenta? Regístrate</button>
+          </div>
+        </div>
+        <div style="padding: 15px; text-align: center; font-size: 12px; color: #5a6577;">Login Screen</div>
+      </div>
+
+      <!-- Map Screen -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="map-screen">
+            <div class="map-placeholder"></div>
+            <div class="location-pin pin-1">T</div>
+            <div class="location-pin pin-2">A</div>
+            <div class="location-pin pin-3">M</div>
+            <div class="sos-btn">SOS</div>
+            <div class="bottom-nav">
+              <div class="nav-item active">
+                <span class="nav-icon">🗺️</span>
+                <span>Mapa</span>
+              </div>
+              <div class="nav-item">
+                <span class="nav-icon">🚗</span>
+                <span>Manejos</span>
+              </div>
+              <div class="nav-item">
+                <span class="nav-icon">📍</span>
+                <span>Lugares</span>
+              </div>
+              <div class="nav-item">
+                <span class="nav-icon">💎</span>
+                <span>Miembros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 15px; text-align: center; font-size: 12px; color: #5a6577;">Mapa Principal</div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="screen-title">Notificaciones</div>
+          <div class="screen-content">
+            <div class="notif-list">
+              <div class="notif-item">
+                <div class="notif-icon">🚗</div>
+                <div class="notif-content">
+                  <div class="notif-title">Resumen de manejo</div>
+                  <div class="notif-text">Tu score de hoy: 85/100 - Excelente</div>
+                  <div class="notif-text">Hace 5 minutos</div>
+                </div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-icon">📍</div>
+                <div class="notif-content">
+                  <div class="notif-title">Llegaste a Casa</div>
+                  <div class="notif-text">María llegó a Casa a las 6:30 PM</div>
+                  <div class="notif-text">Hace 1 hora</div>
+                </div>
+              </div>
+              <div class="notif-item" style="background: #fff3e0;">
+                <div class="notif-icon" style="background: #ffccbc;">🔴</div>
+                <div class="notif-content">
+                  <div class="notif-title">Alerta SOS</div>
+                  <div class="notif-text">Juan activó una alerta SOS - Ver ubicación</div>
+                  <div class="notif-text">Hace 2 horas</div>
+                </div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-icon">⚠️</div>
+                <div class="notif-content">
+                  <div class="notif-title">Exceso de velocidad</div>
+                  <div class="notif-text">María alcanzó 95 km/h</div>
+                  <div class="notif-text">Ayer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 15px; text-align: center; font-size: 12px; color: #5a6577;">Centro de Notificaciones</div>
+      </div>
+
+      <!-- Places Screen -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="screen-title">Lugares</div>
+          <div class="screen-content">
+            <div class="place-card">
+              <div class="place-header">
+                <span class="place-icon">🏠</span>
+                <span class="place-name">Casa</span>
+              </div>
+              <div style="font-size: 12px; color: #5a6577;">19.4326° N, 99.1332° W • Radio: 100m</div>
+              <div class="place-alerts">
+                <span class="alert-tag">🟢 Llegada</span>
+                <span class="alert-tag">🔴 Salida</span>
+              </div>
+            </div>
+            <div class="place-card">
+              <div class="place-header">
+                <span class="place-icon">🏫</span>
+                <span class="place-name">Escuela</span>
+              </div>
+              <div style="font-size: 12px; color: #5a6577;">19.4500° N, 99.1500° W • Radio: 150m</div>
+              <div class="place-alerts">
+                <span class="alert-tag">🟢 Llegada</span>
+                <span class="alert-tag">🔴 Salida</span>
+              </div>
+            </div>
+            <div class="place-card">
+              <div class="place-header">
+                <span class="place-icon">🏢</span>
+                <span class="place-name">Trabajo</span>
+              </div>
+              <div style="font-size: 12px; color: #5a6577;">19.4200° N, 99.1400° W • Radio: 100m</div>
+              <div class="place-alerts">
+                <span class="alert-tag">🟢 Llegada</span>
+              </div>
+            </div>
+            <button class="btn-primary" style="margin-top: 15px;">+ Agregar lugar</button>
+          </div>
+        </div>
+        <div style="padding: 15px; text-align: center; font-size: 12px; color: #5a6577;">Lista de Lugares</div>
+      </div>
+
+      <!-- Drive Screen -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="screen-title">Reporte de Manejo</div>
+          <div class="screen-content">
+            <div class="score-circle">
+              <span class="score-number">85</span>
+            </div>
+            <div style="text-align: center; margin-bottom: 20px;">
+              <div style="font-size: 14px; color: #5a6577;">Score de seguridad</div>
+              <div style="color: #16a34a; font-weight: 600;">Excelente</div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+              <div style="text-align: center;">
+                <div style="font-size: 20px; font-weight: bold;">25 min</div>
+                <div style="font-size: 12px; color: #5a6577;">Duración</div>
+              </div>
+              <div style="text-align: center;">
+                <div style="font-size: 20px; font-weight: bold;">12.4 km</div>
+                <div style="font-size: 12px; color: #5a6577;">Distancia</div>
+              </div>
+              <div style="text-align: center;">
+                <div style="font-size: 20px; font-weight: bold;">55 km/h</div>
+                <div style="font-size: 12px; color: #5a6577;">Promedio</div>
+              </div>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+              <div style="font-weight: 600; margin-bottom: 10px;">Eventos detectados</div>
+              <div class="place-card" style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 20px;">🛑</span>
+                <div>
+                  <div style="font-size: 14px; font-weight: 500;">Frenado brusco</div>
+                  <div style="font-size: 12px; color: #5a6577;">8:42 AM - Severidad: 2</div>
+                </div>
+              </div>
+              <div class="place-card" style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 20px;">🏎️</span>
+                <div>
+                  <div style="font-size: 14px; font-weight: 500;">Exceso de velocidad</div>
+                  <div style="font-size: 12px; color: #5a6577;">8:45 AM - Severidad: 1</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 15px; text-align: center; font-size: 12px; color: #5a6577;">Detalle de Manejo</div>
+      </div>
+
+      <!-- Membership Screen -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="screen-title">Membresía</div>
+          <div class="screen-content">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <div style="width: 80px; height: 80px; background: #e0f2f1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 10px;">🛡️</div>
+              <div style="font-size: 24px; font-weight: bold;">Plan Familiar</div>
+              <div style="color: #16a34a; font-size: 18px; font-weight: bold;">GRATIS</div>
+            </div>
+            
+            <div class="membership-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div class="membership-title">Plan Familiar</div>
+                  <div style="opacity: 0.9;">Sin cargos • Para siempre</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-weight: bold;">ACTUAL</div>
+              </div>
+              <div class="feature-list">
+                <div class="feature-item">Ubicación en tiempo real</div>
+                <div class="feature-item">Lugares ilimitados</div>
+                <div class="feature-item">Reportes de manejo</div>
+                <div class="feature-item">Alertas SOS</div>
+                <div class="feature-item">Notificaciones</div>
+              </div>
+            </div>
+            
+            <div style="background: white; border-radius: 12px; padding: 15px; margin-top: 15px;">
+              <div style="font-weight: 600; margin-bottom: 10px;">🔒 Privacidad primero</div>
+              <div style="font-size: 13px; color: #5a6577; line-height: 1.5;">
+                Tus datos nunca se venden. Solo compartimos ubicación con tu círculo familiar cuando tú lo decidas.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 15px; text-align: center; font-size: 12px; color: #5a6577;">Pantalla de Membresía</div>
+      </div>
+    </div>
+    
+    <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 12px; text-align: center;">
+      <h3 style="color: #0F766E; margin-bottom: 10px;">🎨 Paleta de colores</h3>
+      <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <div style="text-align: center;"><div style="width: 60px; height: 60px; background: #0F766E; border-radius: 8px; margin-bottom: 5px;"></div><span style="font-size: 12px;">Accent #0F766E</span></div>
+        <div style="text-align: center;"><div style="width: 60px; height: 60px; background: #b91c1c; border-radius: 8px; margin-bottom: 5px;"></div><span style="font-size: 12px;">SOS #b91c1c</span></div>
+        <div style="text-align: center;"><div style="width: 60px; height: 60px; background: #16a34a; border-radius: 8px; margin-bottom: 5px;"></div><span style="font-size: 12px;">Success #16a34a</span></div>
+        <div style="text-align: center;"><div style="width: 60px; height: 60px; background: #f4f6f9; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 5px;"></div><span style="font-size: 12px;">Surface #f4f6f9</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
