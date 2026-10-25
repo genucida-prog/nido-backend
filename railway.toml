@@ -1,0 +1,10 @@
+[build]
+builder = "nixbuildpack"
+
+[deploy]
+startCommand = "npm start"
+buildCommand = "npm run build"
+
+[env]
+NODE_ENV = "production"
+PORT = "3001"

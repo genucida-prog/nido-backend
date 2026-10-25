@@ -1,0 +1,23 @@
+databases:
+  - name: nido-db
+    databaseName: nido
+    plan: free
+
+services:
+  - type: web
+    name: nido-backend
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: SUPABASE_URL
+        value: https://jmzzbuojfumhoynkwysa.supabase.co
+      - key: SUPABASE_ANON_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptenpidW9qZnVtaG95bmt3eXNhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MjgzMTM0NSwiZXhwIjoyMTA4NDA3MzQ1fQ.GHoSTGmZP9wFGctQgnZpjBU9o4bU2Ht5G2M3qZbVml8
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptenpidW9qZnVtaG95bmt3eXNhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MjgzMTM0NSwiZXhwIjoyMTA4NDA3MzQ1fQ.GHoSTGmZP9wFGctQgnZpjBU9o4bU2Ht5G2M3qZbVml8
+      - key: PORT
+        value: "3001"
+      - key: NODE_ENV
+        value: production

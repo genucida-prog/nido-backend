@@ -1,0 +1,16 @@
+{
+  "avoid": ["Life360", "Life 360", "vida360", "Circle360", "family360"],
+  "app_store": {
+    "name": "Nido: Seguridad Familiar",
+    "subtitle": "Ubicación y alertas familiares",
+    "promotional_text": "Comparte ubicación, recibe alertas SOS y reportes de manejo. Gratis para siempre.",
+    "description": "Nido te mantiene conectado con tu familia de forma simple y segura.\n\nQué puedes hacer:\n- Ver la ubicación de tus seres queridos en tiempo real\n- Recibir alertas cuando lleguen o salgan de lugares importantes\n- Enviar alertas SOS con un solo toque\n- Ver reportes de seguridad vial de cada conductor\n- Detección de choques automática\n\nTodo gratis desde el día uno. Sin anuncios. Sin tarjetas de crédito para empezar.\n\nNido:\n- Ubicación en tiempo real\n- Alertas de lugares (llegada y salida)\n- SOS manual con un toque\n- Reportes de manejo y score de seguridad\n- Detección de colisiones\n- Cifrado de extremo a extremo\n\nEmpezá gratis. Actualizá cuando necesites más.\n\nSuscripciones:\n- Nido Plus: $4.99/mes — 5 lugares, 7 días de historial\n- Nido Familiar: $9.99/mes — lugares ilimitados, 30 días de historial\n\nPuedes cancelar en cualquier momento desde Configuración.",
+    "keywords": "familia,ubicacion,tracker,sos,location,family,gps,parenting,children,safety,alert,tracking",
+    "whats_new": "Nueva pantalla de reportes de manejo. Mejoras de estabilidad."
+  },
+  "google_play": {
+    "title": "Nido: Seguridad Familiar GPS",
+    "short_description": "Ubicación GPS, alertas SOS y reportes de manejo. Gratis para tu familia.",
+    "full_description": "Nido es la app de seguridad familiar que pone a tu familia primero, sin cobrarte por cada función.\n\nCaracterísticas principales:\n- Ubicación en tiempo real: ve dónde están tus seres queridos\n- Alertas de lugares: notificaciones al llegar o salir de casa, escuela, trabajo\n- SOS manual: un toque para alertar a todo tu círculo\n- Reportes de manejo: score de seguridad vial, frenadas bruscas, exceso de velocidad\n- Detección de choques: alerta automática en caso de colisión\n- Cifrado de extremo a extremo: tus datos son tuyos\n\nGratis para siempre:\n- 2 lugares con alertas ilimitadas\n- 1 día de historial de ubicación\n- SOS y detección de choques\n\nNido Plus ($4.99/mes):\n- 5 lugares\n- 7 días de historial\n- Reportes detallados\n\nNido Familiar ($9.99/mes):\n- Lugares ilimitados\n- 30 días de historial\n- Exportar reportes\n- Asistencia en carretera\n\nConfiguración en minutos. Sin tarjeta de crédito para empezar."
+  }
+}

@@ -1,0 +1,16 @@
+app = "nido-backend"
+primary_region = "iad"
+
+[env]
+  PORT = "3001"
+  NODE_ENV = "production"
+  SUPABASE_URL = "https://jmzzbuojfumhoynkwysa.supabase.co"
+  SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptenpidW9qZnVtaG95bmt3eXNhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MjgzMTM0NSwiZXhwIjoyMTA4NDA3MzQ1fQ.GHoSTGmZP9wFGctQgnZpjBU9o4bU2Ht5G2M3qZbVml8"
+  SUPABASE_SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptenpidW9qZnVtaG95bmt3eXNhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MjgzMTM0NSwiZXhwIjoyMTA4NDA3MzQ1fQ.GHoSTGmZP9wFGctQgnZpjBU9o4bU2Ht5G2M3qZbVml8"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[deploy]
+  max_memory = 512
+  max_vcpus = 1
